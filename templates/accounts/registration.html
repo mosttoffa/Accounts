@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Registration Page
+
+{% endblock %}
+
+{% block content %}
+   
+        <div class="container mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h3 class="mt-4 mb-4">Customer Registration Form</h3>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button class="btn btn-primary">Register as a Customer</button>
+                    </form>
+                    <p class="mt-4 mb-4"> Already have an account? <a href="{% url 'accounts:login' %}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+        
+
+{% endblock %}

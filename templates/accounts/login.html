@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Login Page
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3 class="mt-4 mb-4">Customer Login Form</h3><hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary mb-4">Login as a Customer</button>
+                {% if error %}
+                <li style="color: red;">{{error}}</li>
+                {% endif %}
+            </form>
+            <p>Forgot Password?<a href="{% url 'accounts:passwordforgot' %}">Reset now.</a></p>
+            <p> or dont have account? <a href="{% url 'accounts:registration' %}{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">Register here</a></p>
+
+            <p> If you are admin  <a href="{% url 'accounts:login' %}">Admin Login here</a></p>    
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
